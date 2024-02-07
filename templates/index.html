@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Analysis</title>
+</head>
+<body>
+    <h1>Investment Analysis</h1>
+
+    <h2>DCF Valuation Recommendation: {{ recommendation }}</h2>
+    <p>DCF Valuation Percentage Over/Under Valuation: {{ percentage_difference }}%</p>
+
+    <h2>News Sentiment Analysis Recommendation: {{ news_recommendation }}</h2>
+
+    <h3>Trader Metrics</h3>
+    <ul>
+        <li>Moving Averages (MA): 20 Days - {{ stock_data['MA_20'].iloc[-1] }}, 50 Days - {{ stock_data['MA_50'].iloc[-1] }}</li>
+        <li>Relative Strength Index (RSI): {{ stock_data['RSI'].iloc[-1] }}</li>
+    </ul>
+
+    <h3>Stock Data</h3>
+    <img src="{{ url_for('static', filename='stock_graph.png') }}" alt="Stock Graph">
+    
+    <h3>News Articles</h3>
+    <ul>
+        {% for article in articles %}
+            <li><a href="{{ article.url }}" target="_blank">{{ article.title }}</a> - {{ article.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
