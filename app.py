@@ -10,7 +10,7 @@ import numpy_financial as npf
 app = Flask(__name__)
 
 # Initialize News API client (replace 'YOUR_API_KEY' with your actual API key)
-newsapi = NewsApiClient(api_key='5fc2acb461764dd89a6c0c3677716e1f')
+newsapi = NewsApiClient(api_key=YOUR_API_KEY)
 
 def fetch_financial_statements(stock_symbol):
     try:
